@@ -4,6 +4,6 @@
 // })
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/VUE_PROJECT/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/vue_project" : "/",
   outputDir: "docs",
 };
