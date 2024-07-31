@@ -109,16 +109,36 @@
     <button @:click="counterBtn">증가</button>
     <button @:click="counterBtn2">감소</button>
     <p> counter : {{counter}} </p>
-
-    <input type="number" v-model="countValue">
-    <button @:click="counterApply">적용</button>
-    <br>
     <button @:click="counterBtn(), showMsg()">증가알림</button>
     <button @:click="counterBtn2(),showMsg()">감소알림</button>
-
+    <br>
+    <input type="number" v-model="countValue">
+    <button @:click="counterApply">적용</button>
   </div>
 
+  <br><br>
+  
+  <div>
+    <select v-model="cityValue" @change="changeCity" >
+      <option value="서울" >서울</option>
+      <option value="부산" >부산</option>
+      <option value="대구" >대구</option>
+      <option value="수원" >수원</option>
+    </select>
+  </div>
 
+  <br><br>
+
+  <div>
+    <input type="text" v-model="emailValue" @input="changeEmail" placeholder="이메일 입력">
+    <p v-if="errEmail" >{{errEmail}}</p>
+  </div>
+  <br>
+  <div>
+    <input type="text" v-model="pwdValue1" @input="changePwd" placeholder="비번 입력"> <br>
+    <input type="text" v-model="pwdValue2" @input="changePwd" placeholder="비번 확인">
+    <p v-if="errPwd" >{{errPwd}}</p>
+  </div>
 
   <div class="br"></div>
 </template>
@@ -162,7 +182,12 @@ export default {
       ],
       counter : 0,
       countValue : 10,
-      
+      cityValue : "수원",
+      emailValue : "",
+      errEmail : '',
+      pwdValue1 : "",
+      pwdValue2 : "",
+      errPwd : '',
     };
   },
   setup() {
@@ -191,6 +216,37 @@ export default {
     },
     showMsg() {
       alert(this.counter+"현제값")
+    },
+    changeCity() {
+      alert("선택한 도시 "+this.cityValue)
+    },
+    changeEmail() {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+      if(this.emailValue === '' || emailPattern.test(this.emailValue)) {
+        this.errEmail = ''
+      }
+      else {
+        this.errEmail = "이메일 형식에 어긋남"
+      }
+    },
+    changePwd() {
+      if(this.pwdValue1 === '') {
+        this.errPwd = '비번 입력'
+      }
+      else if(this.pwdValue1.length < 8) {
+        this.errPwd = '비번 8자리 이상 입력'
+      }
+      else if(this.pwdValue2 === '') {
+        this.errPwd = '비번 확인 입력'
+
+      }
+      else if(this.pwdValue2 === this.pwdValue1) {
+        this.errPwd = ''
+      }
+      else {
+        this.errPwd = "비번이 일치하지 않음"
+      }
     }
   }
 };
