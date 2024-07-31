@@ -140,6 +140,28 @@
     <p v-if="errPwd" >{{errPwd}}</p>
   </div>
 
+  <div>
+    <p>{{hellow()}}</p>
+    <p>{{hellow()}}</p>
+    <p>{{hellow()}}</p>
+    <p>{{hellow2}}</p>
+    <p>{{hellow2}}</p>
+    <p>{{hellow2}}</p>
+  </div>
+
+  <div>
+    <input type="text" v-model="lastName" @change="changeLastName">
+    <input type="text" v-model="firstName" @change="changeFirstName">
+    <p> {{ computedName }} </p>
+    <p> {{methodName()}} </p>
+    <p> {{fullName}} </p> 
+  </div>
+
+  <!-- warch -->
+  <h4> user : {{userInfo}} </h4>
+  <input type="text" v-model="userName">
+  <input type="text" v-model="userAge">
+
   <div class="br"></div>
 </template>
 
@@ -188,7 +210,21 @@ export default {
       pwdValue1 : "",
       pwdValue2 : "",
       errPwd : '',
+      lastName : '',
+      firstName : '',
+      fullName : '',
+      userAge : 30,
+      userName : '홍길동',
+      userInfo : '',
     };
+  },
+  watch:{//userName가 변경될때 연산
+    userName() {
+      this.userInfo = this.userName + this.userAge
+    },
+    userAge() {
+      this.userInfo = this.userName + this.userAge
+    }
   },
   setup() {
     
@@ -202,7 +238,19 @@ export default {
   unmounted() {
     
   },
-  methods: {
+  computed:{//값이 변경될때만 연산
+    hellow2() {
+      console.log("hi 호출2");
+      return "안녕"
+    },
+
+    computedName() {//리턴 값이 변경될때 연산
+      console.log("computedName");
+      return this.lastName + this.firstName
+    }
+    
+  },
+  methods: {//호출 될때마다 연산
     counterBtn() {
       this.counter++
       // counter 는 안됨 
@@ -247,7 +295,23 @@ export default {
       else {
         this.errPwd = "비번이 일치하지 않음"
       }
+    },
+    hellow() {
+      console.log("hi 호출");
+      return "안녕"
+    },
+    changeLastName() {
+      this.fullName = this.firstName + this.lastName
+    },
+    changeFirstName() {
+      this.fullName = this.firstName + this.lastName
+    },
+    methodName() {
+      console.log("methodName");
+      return this.lastName + this.firstName
     }
+
+
   }
 };
 </script>
