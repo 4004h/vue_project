@@ -27,7 +27,8 @@ const routes = [
     path: '/basic',
     name: 'basic',
     component: BasicView
-  },
+  }
+  ,
   {
     path: '/login',
     name: 'login',
