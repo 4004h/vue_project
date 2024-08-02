@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestView from '../views/TestView.vue'
 import BasicView from '../views/BasicView.vue'
+import DeepView from '../views/DeepView.vue'
+import DeepView2 from '../views/DeepView2.vue'
 import LoginView from '../views/LoginView.vue'
 
 const routes = [
@@ -27,6 +29,16 @@ const routes = [
     path: '/basic',
     name: 'basic',
     component: BasicView
+  },
+  {
+    path: '/deep',
+    name: 'deep',
+    component: DeepView
+  },
+  {
+    path: '/deep_2',
+    name: 'deep_2',
+    component: DeepView2
   }
   ,
   {
