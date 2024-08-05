@@ -688,36 +688,23 @@ export default {
 ]
 <template>
   <div class="">
-    <!-- 내용을 추가하세요 -->
+    <SamplePop title="경고"/>
+    <br>
+    <SamplePop2 title="공지사항"/>
   </div>
 </template>
 
 <script>
+import SamplePop from './Sample01Pop.vue';
+import SamplePop2 from './Sample02Pop.vue';
+
 export default {
   name: 'TestView',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
+    
   },
   components: {
+    SamplePop, SamplePop2
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
   data() {

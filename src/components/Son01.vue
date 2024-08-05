@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Gson11 from './Gson11.vue';
-import Gson12 from './Gson12.vue';
+import Gson11 from './Gson11';
+import Gson12 from './Gson12';
 
 export default {
   name: 'Son-01',

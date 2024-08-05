@@ -3,13 +3,10 @@
   <div class="">
     <TemplateView>
       <template v-slot:header>
-        <h1>팝업타이틀</h1>
+        <h1 style="color : red;" > {{ title }} </h1>
       </template>
 
-      <template v-slot:default>
-        <p>팝업컨텐츠1</p>
-        <p>팝업컨텐츠2</p>
-      </template>
+      <p>이 앞은 <span style="color : red; font-weight : 600;">접근 제한 구역</span></p>
 
       <template v-slot:footer>
         <button> 닫기 </button>
@@ -19,12 +16,16 @@
 </template>
 
 <script>
-import TemplateView from './TemplateView.vue';
+
+import TemplateView from './TemplateView';
 
 export default {
   name: 'SamplePop',
   props: {
-
+    title: {
+     type: String,
+     default: '제목없음'
+    }
   },
   components: {
     TemplateView

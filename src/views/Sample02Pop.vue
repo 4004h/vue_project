@@ -1,24 +1,34 @@
+
 <template>
-  <div class="pop">
-    <header>
-      <slot name="header"></slot>
-    </header>
-    <main>
-      <slot></slot>
-    </main>
-    <footer>
-      <slot name="footer"></slot>
-    </footer>
+  <div class="">
+    <TemplateView>
+      <template v-slot:header>
+        <h1> {{ title }} </h1>
+      </template>
+
+      <p>공사1</p>
+      <p>공사2</p>
+
+      <template v-slot:footer>
+        <button> 닫기 </button>
+      </template>
+    </TemplateView>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'TemplateView',
-  props: {
+import TemplateView from './TemplateView';
 
+export default {
+  name: 'SamplePop',
+  props: {
+    title : {
+      tpye : String,
+      default : '',
+    }
   },
   components: {
+    TemplateView
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
   data() {
@@ -60,26 +70,5 @@ export default {
 </script>
 
 <style scoped>
-.pop
-{
-  width: 400px;
-  margin: 0 auto;
-  border-radius: 10px;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-header{
-  background-color: orange;
-  padding: 10px;
-  border-radius: 10px;
-}
-main{
-  padding: 20px;
-}
-footer{
-  background-color: #8698ff;
-  border-radius: 10px;
-  padding: 5px;
-}
 /* 스타일을 추가하세요 */
 </style>
