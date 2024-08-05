@@ -3,8 +3,8 @@
     <!-- 내용을 추가하세요 -->
     <p :style="`color : ${color}`">
       Gson21 : {{ msg }}
-
     </p>
+    {{ grlendMin }}
   </div>
 </template>
 
@@ -36,6 +36,7 @@ export default {
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
+  inject : ['grlend','grlendMin'],
   data() {
     return {
       // 컴포넌트의 데이터를 초기화합니다.

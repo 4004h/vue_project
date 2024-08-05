@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Gson21 from './Gson21.vue';
-import Gson22 from './Gson22.vue';
+import Gson21 from './Gson21';
+import Gson22 from './Gson22';
 
 export default {
   name: 'Son-02',

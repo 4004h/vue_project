@@ -9,7 +9,8 @@
     <button @click="clickSon">버튼01</button>
     <button @click="clickSon2">버튼02</button>
     <button @click="clickSon3">버튼03</button>
-  </div>
+    {{ grlendMin }}
+</div>
 </template>
 
 <script>
@@ -44,6 +45,7 @@ export default {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
     Gson11, Gson12
   },
+  inject : ['grlend','grlendMin'],
   data() {
     return {
       // 컴포넌트의 데이터를 초기화합니다.

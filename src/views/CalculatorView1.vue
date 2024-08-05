@@ -1,17 +1,16 @@
 <template>
-  <div class="gson">
+  <div class="">
     <!-- 내용을 추가하세요 -->
-    <p :style="`color : ${color}`">
-      Gson12 : {{ msg }}
-    </p>
-    <input type="text" v-model="gsonmsg" name="" id="">
-    <button value="gson" @click="clickGson">버튼</button>
+    <h3>CalculatorView1</h3>
+    <input type="text" v-model="num1" @keyup="plusNum"> <span> + </span>
+    <input type="text" v-model="num2" @keyup="plusNum"> <span> = </span>
+    <span> {{ result }} </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Gson-12',
+  name: 'CalculatorView1',
   props: {
     // 문자열 타입의 prop 예시
     //sampleString: {
@@ -37,14 +36,13 @@ export default {
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
-  inject : ['grlend','grlendMin'],
   data() {
     return {
+      result : 0,
+      num1 : 0,
+      num2 : 0,
+
       // 컴포넌트의 데이터를 초기화합니다.
-      msg : '',
-      index : 2,
-      color : 'red',
-      // gsonmsg : '',
     };
   },
   watch: {
@@ -60,20 +58,8 @@ export default {
     // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
-    clickMsg(data) {
-      this.msg = data
-    },
-    sonOrder(i,v) {
-      
-      if(this.index == i)
-      {
-        this.color = v
-      }
-    },
-    clickGson() {
-      console.log(this.gsonmsg);
-      
-      this.$emit("event_report", this.gsonmsg)
+    plusNum() {
+      this.result = Number(this.num1) + Number(this.num2)
     }
     // sample3() {
     //   return '';

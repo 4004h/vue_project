@@ -2,7 +2,9 @@
   <div class="">
     <Son01 ref="son01"/>
     <Son02 ref="son02"/>
+    {{ grlend }}
     <button @click="textClick" value="text버튼">버튼 00</button>
+    
   </div>
 </template>
 
@@ -38,8 +40,12 @@ export default {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
     Son01, Son02
   },
+  provide() {
+    return { grlend : this.grlend.length, grlendMin : Math.min(...this.grlend) }
+  },
   data() {
     return {
+      grlend : [10,2,3,4,5,]
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
