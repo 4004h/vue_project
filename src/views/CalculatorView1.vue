@@ -41,21 +41,8 @@ export default {
       result : 0,
       num1 : 0,
       num2 : 0,
-
       // 컴포넌트의 데이터를 초기화합니다.
     };
-  },
-  watch: {
-    // sample1() {
-    //   console.log('');
-    // }
-    // 데이터를 감시하고 처리할 로직을 작성합니다.
-  },
-  computed: {
-    // sample2() {
-    //   return '';
-    // }
-    // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
     plusNum() {
